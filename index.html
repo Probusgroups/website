@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renew Engineers - EPC Solutions for Electrical & Solar Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #0066CC;
+            --dark-blue: #003d82;
+            --light-blue: #E8F4FF;
+            --accent-green: #34C759;
+            --text-dark: #1d1d1f;
+            --text-light: #6e6e73;
+            --background: #ffffff;
+            --section-bg: #f5f5f7;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-green);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 400;
+            transition: color 0.2s ease;
+            letter-spacing: 0.2px;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .menu-toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0066CC 0%, #004d99 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: grid-flow 20s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes grid-flow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 120px 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+        }
+
+        .section-description {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--section-bg);
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-list li {
+            padding: 0.75rem 0;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.75rem;
+        }
+
+        .service-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Clients Section */
+        .clients {
+            background: white;
+        }
+
+        .clients-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .client-card {
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--section-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .client-card:hover {
+            background: var(--light-blue);
+            transform: scale(1.05);
+        }
+
+        .client-card img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .client-placeholder {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            letter-spacing: 0.5px;
+        }
+
+        /* Projects/Images Section */
+        .projects {
+            background: var(--section-bg);
+        }
+
+        .projects-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #0066CC 0%, #004d99 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .project-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .about-content p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--section-bg);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -2px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Contact Section - COMMENTED OUT */
+        /* 
+        ============================================
+        SEO OPTIMIZATION GUIDE FOR YOUR WEBSITE
+        ============================================
+        
+        1. META TAGS (Add these in <head>):
+           - Title: Keep under 60 characters, include primary keyword
+             Example: "Renew Engineers | EPC Solar & Electrical Solutions Delhi"
+           - Description: 150-160 characters, compelling summary with keywords
+             Example: "Leading EPC contractor for solar & electrical projects in India. Substations, HT/LT panels, on-grid/off-grid solar systems. Trusted by Amazon, Tata & more."
+           - Keywords: Focus on long-tail keywords like "solar EPC contractor Delhi", "substation installation India", "electrical EPC services"
+           - Open Graph tags for social sharing
+           - Twitter Card tags
+           
+        2. STRUCTURED DATA (Schema.org JSON-LD):
+           Add this script in your <head> section:
+           
+           <script type="application/ld+json">
+           {
+             "@context": "https://schema.org",
+             "@type": "LocalBusiness",
+             "name": "Renew Engineers",
+             "image": "[your-logo-url]",
+             "description": "Engineering, Procurement, and Construction of electrical and solar projects",
+             "address": {
+               "@type": "PostalAddress",
+               "streetAddress": "[Your Street]",
+               "addressLocality": "[City]",
+               "addressRegion": "[State]",
+               "postalCode": "[PIN]",
+               "addressCountry": "IN"
+             },
+             "geo": {
+               "@type": "GeoCoordinates",
+               "latitude": [latitude],
+               "longitude": [longitude]
+             },
+             "url": "https://www.yourwebsite.com",
+             "telephone": "[Your Phone]",
+             "openingHoursSpecification": [
+               {
+                 "@type": "OpeningHoursSpecification",
+                 "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                 "opens": "09:00",
+                 "closes": "18:00"
+               }
+             ],
+             "priceRange": "$$",
+             "aggregateRating": {
+               "@type": "AggregateRating",
+               "ratingValue": "4.8",
+               "reviewCount": "50"
+             }
+           }
+           </script>
+           
+        3. ON-PAGE SEO:
+           - One H1 per page (currently good ✓)
+           - Logical H2, H3 hierarchy (currently good ✓)
+           - Alt text for ALL images: Use descriptive keywords
+             Example: alt="Solar panel installation on commercial rooftop by Renew Engineers"
+           - Internal linking between related pages
+           - External links to authoritative sources (industry bodies, certifications)
+           - URL structure: Use clean URLs like /services/solar-installation not /page?id=123
+           
+        4. CONTENT OPTIMIZATION:
+           - Minimum 500 words per service page (electrical, solar)
+           - Use keywords naturally (2-3% density)
+           - Include location-based keywords: "[City] solar contractor", "electrical EPC [State]"
+           - Answer common questions (add FAQ section)
+           - Add blog for regular content updates (2-4 posts/month)
+           - Use synonyms: EPC, turnkey, installation, construction
+           
+        5. TECHNICAL SEO:
+           - Create XML sitemap.xml and submit to Google Search Console
+           - Create robots.txt file
+           - Get SSL certificate (HTTPS) - Essential!
+           - Page load speed < 3 seconds
+             * Compress images (use WebP format, max 200KB each)
+             * Minify CSS/JS
+             * Enable browser caching
+             * Use lazy loading for images
+           - Mobile-responsive (already implemented ✓)
+           - Fix any broken links
+           
+        6. LOCAL SEO (CRITICAL FOR YOUR BUSINESS):
+           - Set up Google Business Profile - DO THIS FIRST!
+             * Add accurate NAP (Name, Address, Phone)
+             * Upload photos of projects
+             * Add business hours
+             * Select correct categories: "Electrical Contractor", "Solar Energy Contractor"
+             * Get reviews (aim for 10+ in first month)
+           
+           - Consistent NAP across ALL platforms:
+             * Website footer
+             * Social media profiles
+             * Directory listings
+             * Never use variations
+           
+           - Local directory listings:
+             * Justdial
+             * IndiaMART
+             * Sulekha
+             * TradeIndia
+             * ExportersIndia
+             * Yellow Pages
+           
+           - Create location pages if you serve multiple cities:
+             Example: /services/solar-installation-delhi
+                      /services/solar-installation-mumbai
+           
+           - Embed Google Maps on contact page
+           
+           - Get customer reviews:
+             * Google (most important)
+             * Facebook
+             * Industry-specific platforms
+             * Send follow-up emails after project completion
+           
+           - Local citations: Ensure business listed on local chambers of commerce
+           
+        7. LINK BUILDING:
+           - Industry directory listings (MNRE, EEPC India, etc.)
+           - Partner websites (suppliers, clients who allow it)
+           - Guest posts on industry blogs
+           - Press releases for major projects
+           - Social media profiles with website link
+           - Case studies that clients might link to
+           - Local business associations
+           
+        8. PERFORMANCE OPTIMIZATION:
+           - Target Google PageSpeed Insights score > 90
+           - Core Web Vitals:
+             * LCP (Largest Contentful Paint) < 2.5s
+             * FID (First Input Delay) < 100ms
+             * CLS (Cumulative Layout Shift) < 0.1
+           - Use CDN for faster global delivery
+           - Optimize all images BEFORE upload
+           - Remove unused CSS/JS
+           
+        9. TRACKING & ANALYTICS:
+           - Set up Google Analytics 4
+           - Set up Google Search Console
+           - Track conversions:
+             * Form submissions
+             * Phone calls
+             * Email clicks
+           - Monitor keyword rankings (use tools like SEMrush, Ahrefs)
+           - Set up Google Tag Manager
+           - Install heatmap tool (Hotjar, Microsoft Clarity)
+           
+        10. CONTENT CALENDAR:
+            - Blog posts: 2-4 per month on topics like:
+              * "How to choose the right solar system for your business"
+              * "Understanding HT vs LT electrical panels"
+              * "ROI of solar installation in [year]"
+              * "Latest government solar subsidies"
+              * Case studies of completed projects
+            
+            - Video content:
+              * Project timelapse videos
+              * Client testimonials
+              * "How it works" explainers
+              * Safety protocols
+            
+            - Social media:
+              * Before/after project photos
+              * Team highlights
+              * Industry news commentary
+              * Tips and educational content
+        
+        11. COMPETITIVE KEYWORDS TO TARGET:
+            - "solar EPC contractor [city]"
+            - "electrical substation installation India"
+            - "HT LT panel manufacturers"
+            - "on grid solar system installation"
+            - "rooftop solar EPC"
+            - "ground mounted solar installation"
+            - "turnkey electrical projects"
+            - "best solar company [city]"
+            
+        12. MUST-HAVE PAGES:
+            - Individual service pages (one per service)
+            - About Us
+            - Case Studies/Projects
+            - Testimonials
+            - Blog
+            - Contact
+            - Careers
+            - FAQ
+            - Privacy Policy
+            - Terms & Conditions
+            
+        PRIORITY ACTION CHECKLIST (Do these first!):
+        □ 1. Get SSL certificate (HTTPS)
+        □ 2. Set up Google Business Profile
+        □ 3. Add Schema markup (LocalBusiness)
+        □ 4. Optimize meta titles and descriptions
+        □ 5. Create XML sitemap
+        □ 6. Submit sitemap to Google Search Console
+        □ 7. Add alt text to all images
+        □ 8. Create detailed service pages (500+ words each)
+        □ 9. Get first 5 Google reviews
+        □ 10. List on top 10 business directories
+        □ 11. Set up Google Analytics
+        □ 12. Compress all images (use TinyPNG.com)
+        □ 13. Add FAQ section
+        □ 14. Create contact form with proper tracking
+        □ 15. Add WhatsApp business button
+        
+        MONTHLY MAINTENANCE:
+        - Add 2-4 blog posts
+        - Update project portfolio
+        - Monitor and respond to reviews
+        - Check Google Search Console for errors
+        - Update service pages with new information
+        - Check and fix any broken links
+        - Monitor competitor websites
+        - Review and update keywords
+        
+        ============================================
+        */
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 80px 2rem 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            section {
+                padding: 80px 1.5rem;
+            }
+
+            .section-header {
+                margin-bottom: 50px;
+            }
+
+            .services-grid,
+            .clients-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Renew <span>Engineers</span></div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#clients">Clients</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Powering Tomorrow with Engineering Excellence</h1>
+            <p>Complete EPC solutions for electrical infrastructure and solar energy systems across India</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <h2 class="section-title">Engineering Solutions That Power Progress</h2>
+            <p class="section-description">From concept to commissioning, we deliver turnkey electrical and solar projects with precision and reliability</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Electrical Infrastructure</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <ul class="service-list">
+                    <li>Substation Design & Installation</li>
+                    <li>Internal Wiring & Distribution</li>
+                    <li>High Tension (HT) Panel Systems</li>
+                    <li>Low Tension (LT) Panel Systems</li>
+                    <li>Power Distribution Networks</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h3>Solar Energy Systems</h3>
+                <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                <ul class="service-list">
+                    <li>On-Grid Solar Solutions</li>
+                    <li>Off-Grid Power Systems</li>
+                    <li>Ground Mounted Arrays</li>
+                    <li>Rooftop Solar Installations</li>
+                    <li>Solar Farm Development</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients">
+        <div class="section-header">
+            <h2 class="section-title">Trusted by Industry Leaders</h2>
+        </div>
+        <div class="clients-grid">
+            <div class="client-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" style="max-width: 80%; filter: grayscale(100%);">
+            </div>
+            <div class="client-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Tata_logo.svg" alt="Tata Group" style="max-width: 70%; filter: grayscale(100%);">
+            </div>
+            <div class="client-card">
+                <span class="client-placeholder">Kashyapi Infra</span>
+            </div>
+            <div class="client-card">
+                <img src="https://dg4e57nn4fnta.cloudfront.net/logos/ReNew.svg" alt="ReNew Power" style="max-width: 80%; filter: grayscale(100%);">
+            </div>
+            <div class="client-card">
+                <span class="client-placeholder">Hartech Solar</span>
+            </div>
+            <div class="client-card">
+                <span class="client-placeholder">Oriano Solar</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects/Images Section -->
+    <section id="projects" class="projects">
+        <div class="section-header">
+            <h2 class="section-title">Our Projects</h2>
+            <p class="section-description">Delivering excellence across diverse electrical and solar installations</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">⚡</div>
+                <div class="project-content">
+                    <h3>Substation Installation</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">☀️</div>
+                <div class="project-content">
+                    <h3>Solar Farm Development</h3>
+                    <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">🏢</div>
+                <div class="project-content">
+                    <h3>Commercial Rooftop Solar</h3>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">🔌</div>
+                <div class="project-content">
+                    <h3>HT/LT Panel Systems</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">🌱</div>
+                <div class="project-content">
+                    <h3>Off-Grid Solar Solutions</h3>
+                    <p>Totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">🏭</div>
+                <div class="project-content">
+                    <h3>Industrial Power Distribution</h3>
+                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="section-header">
+            <h2 class="section-title">Engineering the Future of Energy</h2>
+        </div>
+        <div class="about-container">
+            <div class="about-content">
+                <h3>Excellence in Every Project</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                <p>Et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">MW Installed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Renew Engineers</h3>
+                    <p>Engineering, Procurement, and Construction of electrical and solar projects. Building sustainable energy solutions for a brighter tomorrow.</p>
+                    <br>
+                    <p><strong>Address:</strong><br>[Your Complete Address]<br>[City, State, PIN]</p>
+                    <br>
+                    <p><strong>Phone:</strong> [Your Phone]<br><strong>Email:</strong> [Your Email]</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Electrical Solutions</a></li>
+                        <li><a href="#services">Solar Systems</a></li>
+                        <li><a href="#services">Substations</a></li>
+                        <li><a href="#services">HT/LT Panels</a></li>
+                        <li><a href="#services">Maintenance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#clients">Our Clients</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Renew Engineers. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
